@@ -1,4 +1,4 @@
-const Cooking = ({ preparings }) => {
+const Cooking = ({ cookings }) => {
   return (
     <div>
       <div className="overflow-x-auto">
@@ -13,12 +13,12 @@ const Cooking = ({ preparings }) => {
             </tr>
           </thead>
           <tbody>
-            {preparings.map((preparing, idx) => (
-              <tr key={preparing.recipe_id} className="bg-base-200">
+            {cookings.map((cooking, idx) => (
+              <tr key={cooking.recipe_id} className="bg-base-200">
                 <th>{idx + 1}</th>
-                <td>{preparing.recipe_name}</td>
-                <td>{preparing.preparing_time} minutes</td>
-                <td>{preparing.calories} calories</td>
+                <td>{cooking.recipe_name}</td>
+                <td>{cooking.preparing_time} minutes</td>
+                <td>{cooking.calories} calories</td>
               </tr>
             ))}
           </tbody>

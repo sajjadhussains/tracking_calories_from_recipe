@@ -1,4 +1,4 @@
-const CooksPreparing = ({ preparings }) => {
+const CooksPreparing = ({ preparings, handleAddCooking }) => {
   console.log(preparings);
   return (
     <div>
@@ -15,7 +15,7 @@ const CooksPreparing = ({ preparings }) => {
           </thead>
           <tbody>
             {preparings.map((preparing, idx) => (
-              <tr key={preparing.recipe_id} className="bg-base-200">
+              <tr key={idx} className="bg-base-200">
                 <th>{idx + 1}</th>
                 <td>{preparing.recipe_name}</td>
                 <td>
@@ -29,7 +29,10 @@ const CooksPreparing = ({ preparings }) => {
                   calories
                 </td>
                 <td>
-                  <button className="text-black bg-green-400 px-5 py-3 rounded-[3.125rem]">
+                  <button
+                    onClick={() => handleAddCooking(preparing.recipe_id)}
+                    className="text-black bg-green-400 px-5 py-3 rounded-[3.125rem]"
+                  >
                     Preparing
                   </button>
                 </td>

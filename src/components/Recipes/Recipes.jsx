@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   const [preparings, setPreparings] = useState([]);
+  const [cookings, setCookings] = useState([]);
+
   useEffect(() => {
     fetch("recipes.json")
       .then((res) => res.json())
@@ -28,6 +30,15 @@ const Recipes = () => {
     } else {
       toast("Already Exist");
     }
+  };
+
+  const handleAddCooking = (id) => {
+    const newCooking = preparings.find((item) => item.recipe_id === id);
+    setCookings((prevCookings) => [...prevCookings, newCooking]);
+    const newPreparings = preparings.filter(
+      (preparing) => preparing.recipe_id !== id
+    );
+    setPreparings(newPreparings);
   };
   return (
     <div className="mb-24">
@@ -55,7 +66,11 @@ const Recipes = () => {
           ))}
         </div>
         <div className="md:w-2/5 border border-[rgba(40, 40, 40, 0.2)] rounded-2xl">
-          <Cooks preparings={preparings}></Cooks>
+          <Cooks
+            preparings={preparings}
+            handleAddCooking={handleAddCooking}
+            cookings={cookings}
+          ></Cooks>
         </div>
       </div>
     </div>
