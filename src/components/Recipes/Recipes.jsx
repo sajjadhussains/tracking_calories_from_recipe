@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Recipe from "../Recipe/Recipe";
 import Cooks from "./../Cooks/Cooks";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -12,11 +14,24 @@ const Recipes = () => {
       .then((data) => setRecipes(data));
   }, []);
   const handleAddPreparing = (id) => {
-    const newPreparings = recipes.find((preparing) => preparing.id === id);
-    setPreparings([...preparings, newPreparings]);
+    let isTrue = true;
+    preparings.find((item) => {
+      if (item.recipe_id === id) {
+        isTrue = false;
+      }
+    });
+    if (isTrue) {
+      const newPreparings = recipes.find(
+        (preparing) => preparing.recipe_id === id
+      );
+      setPreparings([...preparings, newPreparings]);
+    } else {
+      toast("Already Exist");
+    }
   };
   return (
     <div className="mb-24">
+      <ToastContainer />
       <div className="flex justify-center mb-12">
         <div className="text-center md:w-4/6">
           <h1 className="text-5xl font-semibold">Our Recipes</h1>
@@ -33,8 +48,9 @@ const Recipes = () => {
           {recipes.map((recipe) => (
             <Recipe
               recipe={recipe}
-              key={recipe.id}
+              key={recipe.recipe_id}
               handleAddPreparing={handleAddPreparing}
+              ToastContainer={ToastContainer}
             ></Recipe>
           ))}
         </div>

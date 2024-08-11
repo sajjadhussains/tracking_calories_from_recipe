@@ -4,7 +4,7 @@ import "./Recipe.css";
 
 const Recipe = ({ recipe, handleAddPreparing }) => {
   const {
-    id,
+    recipe_id,
     recipe_image,
     recipe_name,
     short_description,
@@ -46,7 +46,7 @@ const Recipe = ({ recipe, handleAddPreparing }) => {
           </div>
         </div>
         <button
-          onClick={() => handleAddPreparing(id)}
+          onClick={() => handleAddPreparing(recipe_id)}
           className="text-black bg-green-400 px-5 py-3 rounded-[3.125rem]"
         >
           Want to Cook
