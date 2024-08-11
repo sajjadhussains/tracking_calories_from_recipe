@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const CooksPreparing = ({ preparings, handleAddCooking }) => {
   console.log(preparings);
   return (
@@ -44,5 +46,8 @@ const CooksPreparing = ({ preparings, handleAddCooking }) => {
     </div>
   );
 };
-
+CooksPreparing.propTypes = {
+  preparings: PropTypes.array,
+  handleAddCooking: PropTypes.func,
+};
 export default CooksPreparing;

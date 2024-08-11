@@ -1,4 +1,5 @@
 import Calculation from "../Calculation/Calculation";
+import PropTypes from "prop-types";
 
 const Cooking = ({ cookings }) => {
   return (
@@ -31,4 +32,7 @@ const Cooking = ({ cookings }) => {
   );
 };
 
+Cooking.propTypes = {
+  cookings: PropTypes.array,
+};
 export default Cooking;

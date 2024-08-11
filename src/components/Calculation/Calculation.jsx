@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 const Calculation = ({ cookings }) => {
   const totalTime = () => {
@@ -30,5 +30,7 @@ const Calculation = ({ cookings }) => {
     </div>
   );
 };
-
+Calculation.propTypes = {
+  cookings: PropTypes.array,
+};
 export default Calculation;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const CooksCommon = ({ preparings, heading }) => {
   return (
     <div className="w-[21.875rem] mx-auto mt-8 border-b border-[rgba(40, 40, 40, 0.15)]">
@@ -7,5 +9,8 @@ const CooksCommon = ({ preparings, heading }) => {
     </div>
   );
 };
-
+CooksCommon.propTypes = {
+  preparings: PropTypes.array,
+  heading: PropTypes.string,
+};
 export default CooksCommon;

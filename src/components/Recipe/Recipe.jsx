@@ -1,6 +1,7 @@
 import clock from "../../assets/images/clock.png";
 import calorie from "../../assets/images/calorie.png";
 import "./Recipe.css";
+import PropTypes from "prop-types";
 
 const Recipe = ({ recipe, handleAddPreparing }) => {
   const {
@@ -55,5 +56,8 @@ const Recipe = ({ recipe, handleAddPreparing }) => {
     </div>
   );
 };
-
+Recipe.propTypes = {
+  recipe: PropTypes.object,
+  handleAddPreparing: PropTypes.func,
+};
 export default Recipe;
