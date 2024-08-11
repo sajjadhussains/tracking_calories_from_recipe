@@ -1,14 +1,20 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Recipe from "../Recipe/Recipe";
+import Cooks from "./../Cooks/Cooks";
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
+  const [preparings, setPreparings] = useState([]);
   useEffect(() => {
     fetch("recipes.json")
       .then((res) => res.json())
       .then((data) => setRecipes(data));
   }, []);
+  const handleAddPreparing = (id) => {
+    const newPreparings = recipes.find((preparing) => preparing.id === id);
+    setPreparings([...preparings, newPreparings]);
+  };
   return (
     <div className="mb-24">
       <div className="flex justify-center mb-12">
@@ -22,14 +28,18 @@ const Recipes = () => {
         </div>
       </div>
 
-      <div className="md:flex justify-between">
-        <div className="md:grid grid-cols-2 md:w-7/12 gap-6">
+      <div className="md:flex md:justify-between">
+        <div className="md:grid md:grid-cols-2 md:w-7/12 gap-6">
           {recipes.map((recipe) => (
-            <Recipe recipe={recipe} key={recipe.id}></Recipe>
+            <Recipe
+              recipe={recipe}
+              key={recipe.id}
+              handleAddPreparing={handleAddPreparing}
+            ></Recipe>
           ))}
         </div>
-        <div className="w-2/5 border border-[rgba(40, 40, 40, 0.2)] rounded-2xl">
-          <h1>bangladesh 2</h1>
+        <div className="md:w-2/5 border border-[rgba(40, 40, 40, 0.2)] rounded-2xl">
+          <Cooks preparings={preparings}></Cooks>
         </div>
       </div>
     </div>

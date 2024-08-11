@@ -2,8 +2,9 @@ import clock from "../../assets/images/clock.png";
 import calorie from "../../assets/images/calorie.png";
 import "./Recipe.css";
 
-const Recipe = ({ recipe }) => {
+const Recipe = ({ recipe, handleAddPreparing }) => {
   const {
+    id,
     recipe_image,
     recipe_name,
     short_description,
@@ -11,6 +12,7 @@ const Recipe = ({ recipe }) => {
     preparing_time,
     calories,
   } = recipe;
+
   return (
     <div className="p-6 border border-[rgba(40, 40, 40, 0.2)] rounded-2xl">
       <div className="">
@@ -43,7 +45,10 @@ const Recipe = ({ recipe }) => {
             <p className="bottom-text-info">{calories} calories</p>
           </div>
         </div>
-        <button className="text-black bg-green-400 px-5 py-3 rounded-[3.125rem]">
+        <button
+          onClick={() => handleAddPreparing(id)}
+          className="text-black bg-green-400 px-5 py-3 rounded-[3.125rem]"
+        >
           Want to Cook
         </button>
       </div>
