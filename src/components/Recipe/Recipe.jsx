@@ -1,16 +1,51 @@
+import clock from "../../assets/images/clock.png";
+import calorie from "../../assets/images/calorie.png";
+import "./Recipe.css";
+
 const Recipe = ({ recipe }) => {
-  const { recipe_image } = recipe;
+  const {
+    recipe_image,
+    recipe_name,
+    short_description,
+    ingredients,
+    preparing_time,
+    calories,
+  } = recipe;
   return (
-    <div className="card bg-base-100 shadow-xl w-96">
-      <figure>
-        <img src={recipe_image} />
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+    <div className="p-6 border border-[rgba(40, 40, 40, 0.2)] rounded-2xl">
+      <div className="">
+        <div className="border-b border-[rgba(40, 40, 40, 0.1)] pb-4 mb-6">
+          <figure className="w-80 h-52 mb-6">
+            <img className="w-full h-full" src={recipe_image} alt="" />
+          </figure>
+          <h3 className="mb-6 font-xl font-semibold">{recipe_name}</h3>
+          <p className="card-text-info">{short_description}</p>
         </div>
+        <div className="border-b border-[rgba(40, 40, 40, 0.1)]">
+          <h3 className="text-lg font-medium">
+            Ingredients:{ingredients.length}
+          </h3>
+          <ul className="list-disc p-4">
+            {ingredients.map((item, idx) => (
+              <li className="card-text-info" key={idx}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex gap-5 my-6">
+          <div className="flex gap-2">
+            <img src={clock} alt="" />
+            <p className="bottom-text-info">{preparing_time} min</p>
+          </div>
+          <div className="flex gap-2">
+            <img src={calorie} alt="" />
+            <p className="bottom-text-info">{calories} calories</p>
+          </div>
+        </div>
+        <button className="text-black bg-green-400 px-5 py-3 rounded-[3.125rem]">
+          Want to Cook
+        </button>
       </div>
     </div>
   );

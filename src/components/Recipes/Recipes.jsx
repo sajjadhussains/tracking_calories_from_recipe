@@ -22,11 +22,14 @@ const Recipes = () => {
         </div>
       </div>
 
-      <div className="">
-        <div className="md:grid grid-cols-2 md:w-3/5 gap-6">
+      <div className="md:flex justify-between">
+        <div className="md:grid grid-cols-2 md:w-7/12 gap-6">
           {recipes.map((recipe) => (
             <Recipe recipe={recipe} key={recipe.id}></Recipe>
           ))}
+        </div>
+        <div className="w-2/5 border border-[rgba(40, 40, 40, 0.2)] rounded-2xl">
+          <h1>bangladesh 2</h1>
         </div>
       </div>
     </div>
