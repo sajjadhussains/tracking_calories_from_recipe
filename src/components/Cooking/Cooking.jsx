@@ -1,3 +1,5 @@
+import Calculation from "../Calculation/Calculation";
+
 const Cooking = ({ cookings }) => {
   return (
     <div>
@@ -24,6 +26,7 @@ const Cooking = ({ cookings }) => {
           </tbody>
         </table>
       </div>
+      <Calculation cookings={cookings}></Calculation>
     </div>
   );
 };

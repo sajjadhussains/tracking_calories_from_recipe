@@ -54,7 +54,7 @@ const Recipes = () => {
         </div>
       </div>
 
-      <div className="md:flex md:justify-between">
+      <div className="md:flex md:justify-between md:items-start">
         <div className="md:grid md:grid-cols-2 md:w-7/12 gap-6">
           {recipes.map((recipe) => (
             <Recipe
@@ -65,7 +65,7 @@ const Recipes = () => {
             ></Recipe>
           ))}
         </div>
-        <div className="md:w-2/5 border border-[rgba(40, 40, 40, 0.2)] rounded-2xl">
+        <div className="md:w-2/5 border border-[rgba(40, 40, 40, 0.2)] rounded-2xl pb-10">
           <Cooks
             preparings={preparings}
             handleAddCooking={handleAddCooking}
