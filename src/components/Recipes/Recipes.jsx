@@ -46,10 +46,10 @@ const Recipes = () => {
       <div className="flex justify-center mb-12">
         <div className="text-center md:w-4/6">
           <h1 className="text-5xl font-semibold">Our Recipes</h1>
-          <p className="text-[rgba(21, 11, 43, 0.6)] mt-6">
-            Lorem ipsum dolor sit amet consectetur. Proin et feugiat senectus
-            vulputate netus pharetra rhoncus. Eget urna volutpat curabitur
-            elementum mauris aenean neque.{" "}
+          <p className="text-[ rgba(21, 11, 43, 0.6)] mt-6">
+            Your menu offers a variety of dishes, including Italian classics,
+            fresh salads, and flavorful Asian-inspired recipes, all made with
+            quality ingredients for a satisfying meal.
           </p>
         </div>
       </div>

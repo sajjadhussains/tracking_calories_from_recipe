@@ -18,7 +18,7 @@ const Recipe = ({ recipe, handleAddPreparing }) => {
     <div className="p-6 border border-[rgba(40, 40, 40, 0.2)] rounded-2xl">
       <div className="">
         <div className="border-b border-[rgba(40, 40, 40, 0.1)] pb-4 mb-6">
-          <figure className="w-80 h-52 mb-6">
+          <figure className="w-80 h-52 mb-6 rounded-2xl">
             <img className="w-full h-full" src={recipe_image} alt="" />
           </figure>
           <h3 className="mb-6 font-xl font-semibold">{recipe_name}</h3>
